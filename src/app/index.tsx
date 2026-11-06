@@ -1,98 +1,54 @@
-import * as Device from 'expo-device';
-import { Platform, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+//นำเข้า วิว    ข้อความ              จาก   ชื่อไลบรารี่
+import { StyleSheet, Text, View, Image } from 'react-native';
 
-import { AnimatedIcon } from '@/components/animated-icon';
-import { HintRow } from '@/components/hint-row';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { WebBadge } from '@/components/web-badge';
-import { BottomTabInset, MaxContentWidth, Spacing } from '@/constants/theme';
+//ส่งออก เริ่มต้น  ฟังก์ชัน    ขื่อฟังก์ชัน
+export default function App(){
+ return (
+  <View style={homeStyle.container} >
+    {/* ใส่ข้อความ */}
+    <Text style={homeStyle.title}>Waritsara</Text>
 
-function getDevMenuHint() {
-  if (Platform.OS === 'web') {
-    return <ThemedText type="small">use browser devtools</ThemedText>;
-  }
-  if (Device.isDevice) {
-    return (
-      <ThemedText type="small">
-        shake device or press <ThemedText type="code">m</ThemedText> in terminal
-      </ThemedText>
-    );
-  }
-  const shortcut = Platform.OS === 'android' ? 'cmd+m (or ctrl+m)' : 'cmd+d';
-  return (
-    <ThemedText type="small">
-      press <ThemedText type="code">{shortcut}</ThemedText>
-    </ThemedText>
-  );
+    {/* ใส่ภาพ */}
+    <Image 
+    source={require('@/assets/dudi dudi dam dam.jpeg')} 
+    style={{ 
+      width: 300, 
+      height: 300, 
+      borderRadius: 250, 
+      borderWidth: 10}}
+    />
+    {/* ใส่รูปจากเว็บ */}
+    <Image 
+    source={{uri:"https://i.pinimg.com/736x/65/c5/6f/65c56f6da1f7afb4b4c1ad3b19807b94.jpg"}}
+    style={{
+      width: 300, 
+      height: 300, 
+      borderRadius: 250, 
+      borderWidth: 10}}
+    />
+    {/* เรียงวัตถุเเนวนอน ซ้ายไปขวา */}
+    <View style={{flexDirection: "row"}}>
+      <Text>mew</Text>
+      
+      <Text>meow</Text>
+    </View>
+
+  </View>
+ )
 }
 
-export default function HomeScreen() {
-  return (
-    <ThemedView style={styles.container}>
-      <SafeAreaView style={styles.safeArea}>
-        <ThemedView style={styles.heroSection}>
-          <AnimatedIcon />
-          <ThemedText type="title" style={styles.title}>
-            Welcome to&nbsp;Expo
-          </ThemedText>
-        </ThemedView>
-
-        <ThemedText type="code" style={styles.code}>
-          get started
-        </ThemedText>
-
-        <ThemedView type="backgroundElement" style={styles.stepContainer}>
-          <HintRow
-            title="Try editing"
-            hint={<ThemedText type="code">src/app/index.tsx</ThemedText>}
-          />
-          <HintRow title="Dev tools" hint={getDevMenuHint()} />
-          <HintRow
-            title="Fresh start"
-            hint={<ThemedText type="code">npm run reset-project</ThemedText>}
-          />
-        </ThemedView>
-
-        {Platform.OS === 'web' && <WebBadge />}
-      </SafeAreaView>
-    </ThemedView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    flexDirection: 'row',
+//สร้างสไตล์เเต่ง
+const homeStyle = StyleSheet.create({
+  container:{
+    backgroundColor: "red",
+    flex:1, //ขยายให้เต็มพื้นที่
+    alignItems: "center",
   },
-  safeArea: {
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    alignItems: 'center',
-    gap: Spacing.three,
-    paddingBottom: BottomTabInset + Spacing.three,
-    maxWidth: MaxContentWidth,
-  },
-  heroSection: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-    paddingHorizontal: Spacing.four,
-    gap: Spacing.four,
-  },
-  title: {
-    textAlign: 'center',
-  },
-  code: {
-    textTransform: 'uppercase',
-  },
-  stepContainer: {
-    gap: Spacing.three,
-    alignSelf: 'stretch',
-    paddingHorizontal: Spacing.three,
-    paddingVertical: Spacing.four,
-    borderRadius: Spacing.four,
-  },
-});
+  title:{
+    color: "white", //สีอักษร
+    fontSize: 32, //ขนาดอักษร
+    fontWeight: 700, //ความหนาอักษร 100-900
+    fontStyle: "italic", //เอียง
+    textAlign: "center" //ปรับตำเเหน่ง
+  }
+})

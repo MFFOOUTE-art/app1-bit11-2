@@ -22,7 +22,7 @@ export default function App(){
     {/* ใส่ข้อความ */}
     <Text style={homeStyle.title}> น.ส วริสรา ยุภานิช </Text>
 
-    <Text style={{marginTop: 5}}> บิดเเล้วรวดวงซวยเเล้วไง </Text>
+    <Text style={{marginTop: 5}}> บิดเเล้วรวยดวงซวยเเล้วไง </Text>
 
     <View style={{padding: 20, backgroundColor: "#e8e8e8", width: 350, height: 100, gap: 5, borderRadius: 10, marginTop: 10}}>
       <Text style={{}}>ห้อง BIT.1/1 เลขที่ 2</Text>

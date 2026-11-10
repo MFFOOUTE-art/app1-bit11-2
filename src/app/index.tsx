@@ -9,7 +9,7 @@ export default function App(){
     
     {/* ใส่ภาพ */}
     <Image 
-    source={require('@/assets/dudi dudi dam dam.jpeg')} 
+    source={{uri: "https://e-sis.e-tech.ac.th/etech/Moduls/studentPhotos/photo/2569/6911673183065.jpg"}} 
     style={{ 
       width: 150, 
       height: 150, 
